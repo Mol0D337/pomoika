@@ -1,31 +1,25 @@
 <template>
+
     <div class="lol">
         <h1 class="h1">SIGN IN</h1>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-                <button class="btn waves-effect deep-purple darken-4" type="submit" name="action">Sign IN
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
-        </div>
+
+        <InputEmail/>
+        <PasswordInput/>
+
+        <button class="btn waves-effect deep-purple darken-4" type="submit" name="action">Sign IN
+            <i class="material-icons right">send</i>
+        </button>
     </div>
+
 </template>
 
 <script>
+import InputEmail from "../components/InputEmail";
+import PasswordInput from "../components/PasswordInput";
+
     export default {
         name: "SignIn",
+        components: {InputEmail, PasswordInput}
     }
 </script>
 
