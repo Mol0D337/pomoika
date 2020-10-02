@@ -1,39 +1,41 @@
 <template>
-    <div >
-        <nav class="teal darken-1">
-            <div class="nav-wrapper">
-                <router-link to="/" class="brand-logo">Tasks</router-link>
-                <ul  class="right hide-on-med-and-down">
-                    <router-link
-                    tag="li"
-                    to="/"
-                    exact
-                    active-class="active"
-                    >
-                        <a href="#">Create</a>
-                    </router-link>
-                    <router-link
-                            tag="li"
-                            to="/list"
-                            active-class="active"
-                    >
-                        <a href="#">List</a>
-                    </router-link>
+    <nav class="lol">
+        <div class="nav-wrapper">
+            <router-link to="/" class="brand-logo">НЮХАЙ БЕБРУ</router-link>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <router-link
+                        tag="li"
+                        to="/signin"
+                        exact=""
+                        active-class="active"
+                >
+                    <a href="#">Login</a>
+                </router-link>
 
-                </ul>
-            </div>
-        </nav>
-    </div>
+                <router-link
+                        tag="li"
+                        to="/registration"
+                        active-class="active"
+                >
+                    <a href="#">Registration</a>
+                </router-link>
+            </ul>
+        </div>
+    </nav>
 </template>
 
 <script>
     export default {
-        name: "NavBar"
+        name: "NavBar",
+
+
     }
+
 </script>
 
 <style scoped>
- nav {
-     padding: 0 2rem;
- }
+.lol {
+    padding: 0 50px;
+
+}
 </style>

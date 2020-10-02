@@ -6,18 +6,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'create',
-    component: () => import('../views/Create')
+    name: 'home',
+    component: () => import('../views/Home'),
   },
   {
-    path: '/list',
-    name: 'list',
-    component: () => import('../views/List')
+    path: '/signin',
+    name: 'SignIn',
+    component: () => import('../views/SignIn')
   },
   {
-    path: '/task/:id',
-    name: 'task',
-    component: () => import('../views/Task')
+    path: '/registration',
+    name: 'Registration',
+    component: () => import('../views/Registration')
   }
 ]
 
