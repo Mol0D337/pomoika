@@ -3,8 +3,20 @@
     <div class="lol">
         <h1 class="h1">SIGN IN</h1>
 
-        <InputEmail/>
-        <PasswordInput/>
+        <Input
+                value=""
+                label="Email"
+                placeholder=""
+                type="text"
+        />
+
+        <Input
+                value=""
+                label="Password"
+                placeholder=""
+                type="password"
+        />
+
 
         <button class="btn waves-effect deep-purple darken-4" type="submit" name="action">Sign IN
             <i class="material-icons right">send</i>
@@ -14,12 +26,12 @@
 </template>
 
 <script>
-import InputEmail from "../components/InputEmail";
-import PasswordInput from "../components/PasswordInput";
+import Input from "../components/Input";
+
 
     export default {
         name: "SignIn",
-        components: {InputEmail, PasswordInput}
+        components: { Input,}
     }
 </script>
 
