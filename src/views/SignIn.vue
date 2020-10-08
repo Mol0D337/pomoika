@@ -28,8 +28,10 @@ import Input from "../components/Input";
         },
         methods: {
             enterUser() {
-                localStorage.setItem('SignIN', JSON.stringify(this.user))
-                alert('kek')
+                const lol = JSON.parse(localStorage.getItem('userr')) || [];
+                lol.push(this.user);
+                localStorage.setItem('userr', JSON.stringify(lol));
+                this.$router.push({name: 'home'});
             }
         }
     }

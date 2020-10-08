@@ -37,8 +37,10 @@
                 if(this.user.password !== this.user.confirmPassword || this.user.email === '') {
                     this.error = true;
                 } else {
-                    localStorage.setItem('SignUP', JSON.stringify(this.user))
-                    alert('lol')
+                    const lol = JSON.parse(localStorage.getItem('users')) || [];
+                    lol.push(this.user);
+                    localStorage.setItem('users', JSON.stringify(lol));
+                    this.$router.push({name: 'SignIn'});
                 }
             }
         }
