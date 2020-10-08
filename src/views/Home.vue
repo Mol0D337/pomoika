@@ -30,8 +30,8 @@
 
 <style scoped>
     .post {
-        margin: 25px 250px;
-        border: 1px solid #ccc;
+        margin: 25px 450px;
+        border: 2px solid #ccc;
         border-radius: 5px;
         text-align: center;
         padding: 20px;

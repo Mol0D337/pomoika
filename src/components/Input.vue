@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class=" col s12">
+        <div class="col">
             <input
                     :type="type"
                     class="validate"
@@ -43,4 +43,29 @@
 </script>
 
 <style scoped>
+    .validate {
+        color: #555;
+        width: 100%;
+        box-sizing: border-box;
+        letter-spacing: 1px;
+        outline: none;
+        border: none;
+        padding: 4px 0;
+        border-bottom: 1px solid #ccc;
+        background-color: transparent;
+    }
+    .row {
+        margin: 25px 350px;
+    }
+
+    label {
+        font-family: 'Lato', sans-serif;
+        font-size: 14px;
+        line-height: 30px;
+        color: #2F4F4F;
+        text-decoration: none;
+    }
+    .col {
+
+    }
 </style>

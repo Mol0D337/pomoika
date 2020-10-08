@@ -2,7 +2,7 @@
     <nav class="lol">
         <div class="nav-wrapper">
             <router-link to="/" class="brand-logo">НЮХАЙ БЕБРУ</router-link>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right">
                 <router-link
                         tag="li"
                         to="/signin"
@@ -27,8 +27,6 @@
 <script>
     export default {
         name: "NavBar",
-
-
     }
 
 </script>
@@ -36,6 +34,41 @@
 <style scoped>
 .lol {
     padding: 0 50px;
-
+    background-color: #FFA07A;
 }
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-family: 'Lato', sans-serif;
+    font-size: 35px;
+    line-height: 70px;
+    color: #FFE4E1;
+    text-decoration: none;
+}
+
+.right {
+    display: flex;
+}
+
+li{
+    margin-right: 50px;
+    text-align: left;
+    text-transform: uppercase;
+    list-style: none;
+}
+
+li a {
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFE4E1;
+    text-decoration: none;
+}
+
 </style>
