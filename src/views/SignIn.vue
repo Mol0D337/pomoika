@@ -1,27 +1,13 @@
 <template>
 
-    <div class="lol">
+    <form class="lol" @submit.prevent="enterUser">
         <h1 class="h1">SIGN IN</h1>
-
-        <Input
-                value=""
-                label="Email"
-                placeholder=""
-                type="text"
-        />
-
-        <Input
-                value=""
-                label="Password"
-                placeholder=""
-                type="password"
-        />
-
+        <Input value="" label="Email" placeholder="" type="text" v-model="user.email"/>
+        <Input value="" label="Password" placeholder="" type="password" v-model="user.password"/>
         <div class="bbtn">
             <button class="btn" type="submit" name="action">SIGN IN</button>
         </div>
-
-    </div>
+    </form>
 
 </template>
 
@@ -31,7 +17,21 @@ import Input from "../components/Input";
 
     export default {
         name: "SignIn",
-        components: { Input, }
+        components: { Input, },
+        data() {
+            return {
+                user: {
+                    email: '',
+                    password: '',
+                }
+            }
+        },
+        methods: {
+            enterUser() {
+                localStorage.setItem('SignIN', JSON.stringify(this.user))
+                alert('kek')
+            }
+        }
     }
 </script>
 

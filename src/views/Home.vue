@@ -4,7 +4,7 @@
             <h2>{{post.title}}</h2>
             <p>{{post.body}}</p>
         </div>
-        <Login v-if="isShowLogin"/>
+
     </div>
 </template>
 
@@ -14,7 +14,7 @@
         data() {
             return {
                 posts: [],
-                isShowLogin: false
+
             };
         },
         async mounted() {
