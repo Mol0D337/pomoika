@@ -28,10 +28,17 @@ import Input from "../components/Input";
         },
         methods: {
             enterUser() {
-                const lol = JSON.parse(localStorage.getItem('userr')) || [];
-                lol.push(this.user);
-                localStorage.setItem('userr', JSON.stringify(lol));
-                this.$router.push({name: 'home'});
+                const lol = JSON.parse(localStorage.getItem('users')) || [];
+                // lol.push(this.user);
+                // localStorage.setItem('userr', JSON.stringify(lol));
+                //
+
+                const user = lol.find(user => user.email === this.user.email);
+
+                if (user) {
+                    console.log(user, 'user');//setLOcalstorage
+                    this.$router.push({name: 'home'});
+                }
             }
         }
     }
