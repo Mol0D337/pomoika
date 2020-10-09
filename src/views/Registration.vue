@@ -17,11 +17,11 @@
 
 <script>
     import Input from "../components/Input";
-
+    import { required, minLength, between, sameAs } from '../../node_modules/vuelidate/lib/validators';
 
     export default {
         name: "SignUp",
-        components: {Input, },
+        components: {Input, required, minLength, between, sameAs },
         data() {
             return {
                 user: {
@@ -30,6 +30,19 @@
                     confirmPassword: '',
                 },
                 error: false,
+            }
+        },
+        validations: {
+            email: {
+                required,
+                minLength: minLength(4)
+            },
+            password: {
+                required,
+                minLength: minLength(4)
+            },
+            repeatPassword: {
+                sameAsPassword: sameAs('password')
             }
         },
         methods: {

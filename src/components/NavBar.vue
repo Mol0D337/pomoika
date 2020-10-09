@@ -2,7 +2,7 @@
     <nav class="lol">
         <div class="nav-wrapper">
             <router-link to="/" class="brand-logo">НЮХАЙ БЕБРУ</router-link>
-            <div class="right" v-if="email.length">
+            <div class="right" v-if="email.ength">
                 {{email}}
             </div>
             <ul v-else id="nav-mobile" class="right">
@@ -24,11 +24,6 @@
                 </router-link>
             </ul>
         </div>
-
-            <div class="email">
-
-            </div>
-
     </nav>
 </template>
 

@@ -2,7 +2,7 @@
 
     <form class="lol" @submit.prevent="enterUser">
         <h1 class="h1">SIGN IN</h1>
-        <Input value="" label="Email" placeholder="" type="text" v-model="user.email"/>
+        <Input value="" label="Email" placeholder="" type="text" v-model="$v.user.email.$model"/>
         <Input value="" label="Password" placeholder="" type="password" v-model="user.password"/>
         <div class="wrapper" v-if="error">
             <div class="alert">ERROR</div>
@@ -11,16 +11,15 @@
             <button class="btn" type="submit" name="action">SIGN IN</button>
         </div>
     </form>
-
 </template>
 
 <script>
 import Input from "../components/Input";
-
+import { required, minLength, between } from '../../node_modules/vuelidate/lib/validators';
 
     export default {
         name: "SignIn",
-        components: { Input, },
+        components: { Input, required, minLength, between },
         data() {
             return {
                 user: {
@@ -29,6 +28,18 @@ import Input from "../components/Input";
                 },
                 error: false,
             }
+        },
+        validations: {
+            user: {
+                email: {
+                    required,
+                    minLength: minLength(4)
+                },
+                password: {
+                    required,
+                    minLength: minLength(4)
+                }
+            },
         },
         methods: {
             enterUser() {
@@ -40,7 +51,7 @@ import Input from "../components/Input";
                     localStorage.setItem('user', JSON.stringify(user));
                     this.$router.push({name: 'home'});
                 }
-            }
+            },
         }
     }
 </script>
