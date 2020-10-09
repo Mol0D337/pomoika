@@ -2,7 +2,10 @@
     <nav class="lol">
         <div class="nav-wrapper">
             <router-link to="/" class="brand-logo">НЮХАЙ БЕБРУ</router-link>
-            <ul id="nav-mobile" class="right">
+            <div class="right" v-if="email.length">
+                {{email}}
+            </div>
+            <ul v-else id="nav-mobile" class="right">
                 <router-link
                         tag="li"
                         to="/signin"
@@ -21,12 +24,28 @@
                 </router-link>
             </ul>
         </div>
+
+            <div class="email">
+
+            </div>
+
     </nav>
 </template>
 
 <script>
     export default {
         name: "NavBar",
+        data() {
+            return {
+                email: ''
+            }
+        },
+
+        created() {
+            if (localStorage.getItem('user')) {
+                this.email = JSON.parse(localStorage.getItem('user')).email;
+            }
+        }
     }
 
 </script>
@@ -70,5 +89,14 @@ li a {
     color: #FFE4E1;
     text-decoration: none;
 }
+
+    .right{
+        list-style: none;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        line-height: 30px;
+        color: #FFE4E1;
+        text-decoration: none;
+    }
 
 </style>
