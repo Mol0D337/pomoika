@@ -28,12 +28,13 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Input from "../components/Input";
 import { required, minLength, between } from 'vuelidate/lib/validators';
 
     export default {
         name: "SignIn",
-        components: { Input, required, minLength, between },
+        components: { Input, required, minLength, between,axios },
         data() {
             return {
                 user: {
@@ -60,10 +61,16 @@ import { required, minLength, between } from 'vuelidate/lib/validators';
                 if (this.user.email === '' || this.user.password === '') {
                     this.error = true;
                 } else {
-                    const lol = JSON.parse(localStorage.getItem('users'));
-                    const user = lol.find(user => user.email === this.user.email);
-                    localStorage.setItem('user', JSON.stringify(user));
-                    this.$router.push({name: 'home'});
+                    const lol = JSON.stringify(this.user);
+                    axios.post('http://localhost:3000/user', lol )
+                        .then((response) => {
+                            this.$router.push({name: 'home'});
+                            console.log(response);
+                        })
+                        .catch((error) => {
+                            alert('pepe')
+                            console.log(error);
+                        });
                 }
             },
         },
