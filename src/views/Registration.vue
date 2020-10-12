@@ -72,7 +72,7 @@
                     this.error = true;
                 } else {
                     const lol = JSON.stringify(this.user);
-                    axios.post('http://localhost:3000/users', lol )
+                    axios.post('http://localhost:3000/users', this.user )
                         .then((response) => {
                             this.$router.push({name: 'SignIn'});
                             console.log(response);

@@ -62,7 +62,7 @@ import { required, minLength, between } from 'vuelidate/lib/validators';
                     this.error = true;
                 } else {
                     const lol = JSON.stringify(this.user);
-                    axios.post('http://localhost:3000/user', lol )
+                    axios.post('http://localhost:3000/user', this.user )
                         .then((response) => {
                             this.$router.push({name: 'home'});
                             console.log(response);
