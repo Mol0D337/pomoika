@@ -40,7 +40,7 @@
             if (localStorage.getItem('user')) {
                 this.email = JSON.parse(localStorage.getItem('user')).email;
             }
-        }
+        },
     }
 
 </script>

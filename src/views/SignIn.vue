@@ -1,21 +1,35 @@
 <template>
 
     <form class="lol" @submit.prevent="enterUser">
+
         <h1 class="h1">SIGN IN</h1>
-        <Input value="" label="Email" placeholder="" type="text" v-model="$v.user.email.$model"/>
-        <Input value="" label="Password" placeholder="" type="password" v-model="user.password"/>
+
+        <div class="div" :class="{ 'form-group--error': $v.user.email.$error }">
+            <Input value="" label="Email" placeholder="" type="email" v-model="$v.user.email.$model"/>
+        </div>
+        <div class="error" v-if="!$v.user.email.required">Email is required</div>
+        <div class="error" v-if="!$v.user.email.minLength">Email must have at least {{$v.user.email.$params.minLength.min}} letters.</div>
+
+        <div class="div" :class="{ 'form-group--error': $v.user.password.$error }">
+            <Input value="" label="Password" placeholder="" type="password" v-model="$v.user.password.$model"/>
+        </div>
+        <div class="error" v-if="!$v.user.password.required">Password is required</div>
+        <div class="error" v-if="!$v.user.password.minLength">Password must have at least {{$v.user.password.$params.minLength.min}} letters.</div>
+
         <div class="wrapper" v-if="error">
             <div class="alert">ERROR</div>
         </div>
+
         <div class="bbtn">
-            <button class="btn" type="submit" name="action">SIGN IN</button>
+            <button class="btn" type="submit" name="action" v-if="!$v.user.password.$invalid && !$v.user.email.$invalid">SIGN IN</button>
         </div>
     </form>
+
 </template>
 
 <script>
 import Input from "../components/Input";
-import { required, minLength, between } from '../../node_modules/vuelidate/lib/validators';
+import { required, minLength, between } from 'vuelidate/lib/validators';
 
     export default {
         name: "SignIn",
@@ -37,7 +51,7 @@ import { required, minLength, between } from '../../node_modules/vuelidate/lib/v
                 },
                 password: {
                     required,
-                    minLength: minLength(4)
+                    minLength: minLength(6)
                 }
             },
         },
@@ -52,7 +66,7 @@ import { required, minLength, between } from '../../node_modules/vuelidate/lib/v
                     this.$router.push({name: 'home'});
                 }
             },
-        }
+        },
     }
 </script>
 
@@ -88,7 +102,6 @@ import { required, minLength, between } from '../../node_modules/vuelidate/lib/v
     .wrapper {
         display: flex;
         justify-content: center;
-
     }
 
     .alert {
@@ -105,5 +118,12 @@ import { required, minLength, between } from '../../node_modules/vuelidate/lib/v
         border-radius: 5px;
         padding: 5px 20px;
     }
-
+.error {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+    color: #2F4F4F;
+    text-decoration: none;
+}
 </style>

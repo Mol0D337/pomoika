@@ -2,14 +2,31 @@
 
     <form class="lol" @submit.prevent="registerUser">
         <h1 class="h1">SIGN UP</h1>
-        <Input value="" label="Email" placeholder="" type="text" v-model="user.email"/>
-        <Input value="" label="Password" placeholder="" type="password" v-model="user.password"/>
-        <Input value="" label="Repeat Password" placeholder="" type="password" v-model="user.confirmPassword"/>
+
+        <div class="div" :class="{ 'form-group--error': $v.user.email.$error }">
+            <Input value="" label="Email" placeholder="" type="email" v-model="$v.user.email.$model"/>
+        </div>
+        <div class="error" v-if="!$v.user.email.required">Email is required</div>
+        <div class="error" v-if="!$v.user.email.minLength">Email must have at least {{$v.user.email.$params.minLength.min}} letters.</div>
+
+        <div class="div" :class="{ 'form-group--error': $v.user.password.$error }">
+            <Input value="" label="Password" placeholder="" type="password" v-model="$v.user.password.$model"/>
+        </div>
+        <div class="error" v-if="!$v.user.password.required">Password is required</div>
+        <div class="error" v-if="!$v.user.password.minLength">Password must have at least {{$v.user.password.$params.minLength.min}} letters.</div>
+
+        <div class="div" :class="{ 'form-group--error': $v.user.confirmPassword.$error }">
+            <Input value="" label="Repeat Password" placeholder="" type="password" v-model="$v.user.confirmPassword.$model"/>
+        </div>
+        <div class="error" v-if="!$v.user.confirmPassword.required">Password is required</div>
+        <div class="error" v-if="!$v.user.confirmPassword.minLength">Password must have at least {{$v.user.confirmPassword.$params.minLength.min}} letters.</div>
+
         <div class="wrapper" v-if="error">
             <div class="alert">ERROR</div>
         </div>
+
         <div class="bbtn">
-            <button class="btn" type="submit" name="action">SIGN UP</button>
+            <button class="btn" type="submit" name="action" v-if="!$v.user.password.$invalid && !$v.user.email.$invalid && !$v.user.confirmPassword.$invalid">SIGN IN</button>
         </div>
     </form>
 
@@ -33,16 +50,19 @@
             }
         },
         validations: {
-            email: {
-                required,
-                minLength: minLength(4)
-            },
-            password: {
-                required,
-                minLength: minLength(4)
-            },
-            repeatPassword: {
-                sameAsPassword: sameAs('password')
+            user: {
+                email: {
+                    required,
+                    minLength: minLength(4)
+                },
+                password: {
+                    required,
+                    minLength: minLength(6)
+                },
+                confirmPassword: {
+                    required,
+                    minLength: minLength(6)
+                }
             }
         },
         methods: {
@@ -110,5 +130,13 @@
         border: none;
         border-radius: 5px;
         padding: 5px 20px;
+    }
+    .error {
+        text-align: center;
+        font-family: 'Lato', sans-serif;
+        font-size: 14px;
+        line-height: 30px;
+        color: #2F4F4F;
+        text-decoration: none;
     }
 </style>
