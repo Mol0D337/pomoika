@@ -6,71 +6,17 @@
       "password": "kek"
     },
     {
-      "{\"email\":\"rsdgd@gmail.com\",\"password\":\"rsdgd@gmail.com\",\"confirmPassword\":\"rsdgd@gmail.com\"}": "",
+      "email": "gggg@gmail.com",
+      "password": "gggg@gmail.com",
+      "confirmPassword": "gggg@gmail.com",
       "id": 2
-    },
-    {
-      "id": 3,
-      "email": "",
-      "password": ""
-    },
-    {
-      "\"44@gmail.com\"": "",
-      "id": 4
-    },
-    {
-      "id": 5,
-      "email": "",
-      "password": ""
-    },
-    {
-      "{\"email\":\"trhdhg@gmail.com\",\"password\":\"trhdhg@gmail.com\",\"confirmPassword\":\"trhdhg@gmail.com\"}": "",
-      "id": 6
-    },
-    {
-      "{\"email\":\"segseg@gmail.com\",\"password\":\"123456\",\"confirmPassword\":\"123456\"}": "",
-      "id": 7
-    },
-    {
-      "email": "123414@gmail.com",
-      "password": "123414@gmail.com",
-      "confirmPassword": "123414@gmail.com",
-      "id": 8
     }
   ],
   "user": [
     {
-      "id": 1,
-      "email": 1,
-      "password": "lol"
-    },
-    {
-      "{\"email\":\"lol@gmail.com\",\"password\":\"lol@gmail.com\"}": "",
-      "id": 2
-    },
-    {
-      "{\"1\":1,\"2\":2}": "",
-      "id": 3
-    },
-    {
-      "1": 1,
-      "2": 2,
-      "id": 4
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 5
-    },
-    {
-      "email": "sfsf@gmail.com",
-      "password": "sfsf@gmail.com",
-      "id": 6
-    },
-    {
-      "email": "123414@gmail.com",
-      "password": "123414@gmail.com",
-      "id": 7
+      "email": "ddd@gmail.com",
+      "password": "ddd@gmail.com",
+      "id": 1
     }
   ]
 }

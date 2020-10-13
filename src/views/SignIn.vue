@@ -42,8 +42,23 @@ import { required, minLength, between } from 'vuelidate/lib/validators';
                     password: '',
                 },
                 error: false,
+                users: [],
             }
         },
+
+        async created () {
+            await fetch('http://localhost:3000/users')
+                .then(res => {
+                    return res.json()
+                })
+                .then(data => {
+                    this.users = data;
+                })
+                .catch(e => {
+                    console.log(e, 'error');
+                })
+        },
+
         validations: {
             user: {
                 email: {
@@ -62,17 +77,28 @@ import { required, minLength, between } from 'vuelidate/lib/validators';
                     this.error = true;
                 } else {
                     const lol = JSON.stringify(this.user);
-                    axios.post('http://localhost:3000/user', this.user )
-                        .then((response) => {
-                            this.$router.push({name: 'home'});
-                            console.log(response);
-                        })
-                        .catch((error) => {
-                            alert('pepe')
-                            console.log(error);
-                        });
+                    const user = this.users.find(user => {
+                        console.log(user, 'user');
+                        return user.email === this.user.email
+                    } );
+                    if (user) {
+                        this.$router.push({name: 'home'});
+                    } else {
+                        alert('pepe')
+                    }
+
+                    // axios.post('http://localhost:3000/user', this.user )
+                    //     .then((response) => {
+                    //         this.$router.push({name: 'home'});
+                    //         console.log(response);
+                    //     })
+                    //     .catch((error) => {
+                    //         alert('pepe')
+                    //         console.log(error);
+                    //     });
                 }
             },
+
         },
     }
 </script>
