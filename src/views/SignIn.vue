@@ -78,6 +78,7 @@ import { required, minLength, between } from 'vuelidate/lib/validators';
                 } else {
                     const lol = JSON.stringify(this.user);
                     const user = this.users.find(user => {
+                        localStorage.setItem('user', this.user.email);
                         console.log(user, 'user');
                         return user.email === this.user.email
                     } );

@@ -2,9 +2,9 @@
     <nav class="lol">
         <div class="nav-wrapper">
             <router-link to="/" class="brand-logo">НЮХАЙ БЕБРУ</router-link>
-            <router-link to="/signin" class="right" v-if="email.length">
+            <div class="right" v-if="email" :onclick="signout">
                 {{email}}
-            </router-link>
+            </div>
             <ul v-else id="nav-mobile" class="right">
                 <router-link
                         tag="li"
@@ -30,17 +30,25 @@
 <script>
     export default {
         name: "NavBar",
+
         data() {
             return {
-                email: ''
+                email: '',
             }
         },
 
-        created() {
-            if (localStorage.getItem('user')) {
-                this.email = JSON.parse(localStorage.getItem('user')).email;
+        created () {
+            email: {
+                if (localStorage.getItem('user')) {
+                    this.email = localStorage.getItem('user');
+                }
+            }
+            signout: {
+                return localStorage.clear('user');
             }
         },
+
+
     }
 
 </script>
